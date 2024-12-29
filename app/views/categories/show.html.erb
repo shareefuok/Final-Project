@@ -1,0 +1,53 @@
+<%= link_to('Back to List', categories_path, class: 'back-link') %>
+
+<div class="model show">
+  <h2>Show Category</h2>
+
+  <div class="actions">
+    <%= link_to('Edit', edit_category_path(@category), class: 'action edit') %>
+    <%= link_to('Delete', delete_category_path(@category), class: 'action delete') %>
+  </div>
+
+  <table class="detail-view" summary="Category detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @category.name %></td>
+    </tr>
+    <tr>
+      <th>Number of Posts</th>
+      <td><%= @category.posts.count %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @category.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @category.updated_at %></td>
+    </tr>
+  </table>
+
+  <% if @category.posts.any? %>
+    <h3>Posts in this Category</h3>
+    <table class="listing" summary="Posts in this category">
+      <thead>
+      <tr class="header">
+        <th>Title</th>
+        <th>Body</th>
+        <th>Liked</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @category.posts.each do |post| %>
+        <tr>
+          <td><%= link_to(post.title, post_path(post), class: 'post-link') %></td>
+          <td><%= truncate(post.body, length: 100) %></td>
+          <td><%= post.liked? ? 'Yes' : 'No' %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No posts are available in this category.</p>
+  <% end %>
+</div>

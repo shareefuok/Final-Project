@@ -1,0 +1,37 @@
+<%= link_to('Back to List', posts_path, class: 'back-link') %>
+
+<div class="posts new">
+  <h2>Create Post</h2>
+
+  <%= form_for(@post) do |f| %>
+    <% #url: posts_path, method: 'post' %>
+
+    <table summary="Posts from fields">
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Position</th>
+        <td><%= f.text_field(:position) %></td>
+      </tr>
+      <tr>
+        <th>Liked</th>
+        <td><%= f.check_box(:liked) %></td>
+      </tr>
+      <tr>
+        <th>Body</th>
+        <td><%= f.text_area(:body) %></td>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <td><%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "Select a category") %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Create Post") %>
+    </div>
+
+  <% end %>
+</div>

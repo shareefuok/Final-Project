@@ -1,0 +1,36 @@
+<%= link_to('Back to List', categories_path, class: 'back-link') %>
+
+<div class="model edit">
+  <h2>Edit Category</h2>
+
+  <%= form_with(model: @category, local: true) do |f| %>
+    <table summary="Category form fields">
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field :title, placeholder: "Enter category title" %></td>
+      </tr>
+      <tr>
+        <th>Position</th>
+        <td><%= f.number_field :position, placeholder: "Enter position" %></td>
+      </tr>
+      <tr>
+        <th>Liked</th>
+        <td><%= f.check_box :liked %></td>
+      </tr>
+      <tr>
+        <th>Body</th>
+        <td><%= f.text_area :body, placeholder: "Enter category description" %></td>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <td>
+          <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a category" }, class: "category-select" %>
+        </td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit "Update Category", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

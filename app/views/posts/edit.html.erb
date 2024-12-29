@@ -1,0 +1,37 @@
+<%= link_to('Back to List', posts_path, class: 'back-link') %>
+
+<div class="posts edit">
+  <h2>Edit Post</h2>
+
+  <%= form_for(@post) do |f| %>
+    <% #url: tasks_path(@task), method: 'patch' %>
+
+    <table summary="Posts from fields">
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Position</th>
+        <td><%= f.text_field(:position) %></td>
+      </tr>
+      <tr>
+        <th>Liked</th>
+        <td><%= f.check_box(:liked) %></td>
+      </tr>
+      <tr>
+        <th>Body</th>
+        <td><%= f.text_area(:body) %></td>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <td><%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "Select a category") %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Edit Post") %>
+    </div>
+
+  <% end %>
+</div>

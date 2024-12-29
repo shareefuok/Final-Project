@@ -1,0 +1,15 @@
+<div class="home-container">
+  <h1 class="home-title"><%= @project_name %></h1>
+
+  <div class="home-actions">
+    <p>
+      <%= link_to 'Manage your posts', posts_path, class: 'home-link' %>
+    </p>
+    <p>
+      <%= link_to 'Manage your categories', categories_path, class: 'home-link' %>
+    </p>
+    <p>
+      <%= link_to 'About this Project', about_path, class: 'about-link' %>
+    </p>
+  </div>
+</div>

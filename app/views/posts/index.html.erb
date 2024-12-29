@@ -1,0 +1,34 @@
+<%= link_to('Back to Homepage', {controller: 'main', action: 'index'}, class: 'back-link') %>
+
+<div class="model index">
+  <h2>Posts</h2>
+
+  <%= link_to('Add New Post', new_post_path, class: 'action new') %>
+
+  <table class="listing" summary="Post list">
+    <thead>
+    <tr class="header">
+      <th>Title</th>
+      <th>Body</th>
+      <th>Liked</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%= post.liked? ? 'Yes' : 'No' %></td>
+        <td><%= post.category&.name || '-' %></td>
+        <td class="actions">
+          <%= link_to('Show', post_path(post), class: 'action show') %>
+          <%= link_to('Edit', edit_post_path(post), class: 'action edit') %>
+          <%= link_to('Delete', delete_post_path(post), class: 'action delete') %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

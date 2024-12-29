@@ -1,10 +1,241 @@
 /*
- * This is a manifest file that'll be compiled into application.css.
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
  *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
- * Consider organizing styles into separate files for maintainability.
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
  */
+
+/* Home Page Specific Styles */
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.home-actions p {
+    margin: 15px 0;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #17a2b8;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-link:hover {
+    background-color: #126b7e;
+    transform: translateY(-3px);
+}
+
+/* About Page Specific Styles */
+.about-description {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.about-features {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 30px;
+}
+
+.features-list {
+    list-style-type: disc;
+    text-align: left;
+    margin: 20px auto;
+    padding-left: 20px;
+    max-width: 700px;
+    color: #333;
+}
+
+.features-list li {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* About Link Style */
+.about-link {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-link:hover {
+    background-color: #5a6268;
+    color: #f8f9fa;
+    text-decoration: underline;
+}
+
+/* Model Page Specific Styles */
+.model {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+p {
+    color: #333;
+    text-align: center;
+}
+
+.action {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+.back-link {
+    display: block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #0056b3;
+}
+
+.listing, .detail-view, .form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.header {
+    background-color: #f8f9fa;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.detail-view td {
+    width: 50%;
+}
+
+.actions {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.action.show {
+    background-color: #ffc107;
+}
+
+.action.show:hover {
+    background-color: #e0a800;
+}
+
+.action.edit {
+    background-color: #17a2b8;
+}
+
+.action.edit:hover {
+    background-color: #126b7e;
+}
+
+.action.delete {
+    background-color: #dc3545;
+}
+
+.action.delete:hover {
+    background-color: #a52b34;
+}
+
+.action:hover {
+    background-color: #0056b3;
+}
+
+.form-table th, .form-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.form-table td {
+    width: 50%;
+}
+
+.form-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.action.create {
+    background-color: #28a745;
+}
+
+.action.create:hover {
+    background-color: #218838;
+}
+
+/* Category Index View Styles */
+.category-posts {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.category-posts li {
+    list-style: none;
+    margin: 5px 0;
+    line-height: 1.4;
+    text-align: center;
+
+}
+
+.post-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.post-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
